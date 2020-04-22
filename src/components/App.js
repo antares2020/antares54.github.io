@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 // import logo from '../images/logo.svg';
 
-import koala from '../images/koala.jpeg';
-import grizzly from '../images/grizzly.jpg';
-import aironi from '../images/aironi.jpg';
-import puma from '../images/puma.jpg';
-import lemming from '../images/lemming.jpeg';
-import tigrotti from '../images/tigrotti.png';
+import koala from '../images/sqs/koala.jpeg';
+import grizzly from '../images/sqs/grizzly.jpeg';
+import aironi from '../images/sqs/aironi.jpeg';
+import puma from '../images/sqs/puma.jpeg';
+import lemming from '../images/sqs/lemming.jpeg';
+import tigrotti from '../images/sqs/tigrotti.jpeg';
 
 import rocket from '../images/rocket.jpg';
 import space from '../images/space.jpg';
@@ -35,12 +35,12 @@ const squadriglie = [
 ];
 
 const incarichi = [
-  'pulizia scale e bagno',
-  'gioco',
-  'news e magazzino',
-  'pulizia sede',
-  'preghiera',
-  'canto',
+  '🧹 bagno e scale',
+  '🎯 gioco',
+  '📰 news e stock',
+  '🧹 pulizia sede',
+  '🙏🏼 preghiera',
+  '🎤 canto',
 ];
 
 
@@ -56,15 +56,14 @@ const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80%;
+  height: 75%;
   width: 100%;
 
   img {
     border-radius: 50%;
     border: 5px groove #777;
     width: auto;
-    height: 70%;
-    max-width: 100px;
+    max-width: 40%;
   }
 `;
 
@@ -73,19 +72,20 @@ const Item = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 32%;
+  padding-top: 2%;
+  height: 30%;
   width: 48%;
 
   h1 {
-    font-size: 1.2rem;
+    background-color: lightgrey;
+    padding: 0.2rem;
+    border: 2px dotted grey;
+    height: 1.5rem;
+    font-size: 1rem;
     margin: 0;
     text-align: center;
   }
 `;
-// @media (min-width: 800px) {
-//   height: 50%;
-//   width: 33%;
-// }
 
 const AppLine = styled.section`
   display: flex;
@@ -94,7 +94,7 @@ const AppLine = styled.section`
   margin: 0;
   width: 100%;
   height: 15%;
-  background-color: blue;
+  background-color: black;
 `;
 
 const AppMainLine = styled(AppLine)`
@@ -105,6 +105,7 @@ const AppMainLine = styled(AppLine)`
 const AppBottomLine = styled(AppLine)`
   background-image: url(${engine});
   background-position: center top;
+  background-repeat: norepeat;
 `;
 
 const AppTopLine = styled(AppLine)`
@@ -161,20 +162,20 @@ const Main = styled.main`
 function App() {
   return (
     <Main>
-      <AppTopLine>Incarichi</AppTopLine>
+      <AppTopLine />
       <AppMainLine>
-        <AppSide>lato</AppSide>
+        <AppSide />
         <AppContainer>
           {incarichi.map((incarico, index) => (
             <Item>
               <h1>{incarico}</h1>
               <ImgContainer>
-                <img src={koala} alt={squadriglie[index]} />
+                <img src={logos[squadriglie[index]]} alt={squadriglie[index]} />
               </ImgContainer>
             </Item>
           ))}
         </AppContainer>
-        <AppSide>lato</AppSide>
+        <AppSide />
       </AppMainLine>
       <AppBottomLine />
     </Main>
