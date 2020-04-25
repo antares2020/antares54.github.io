@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 
 // import logo from '../images/logo.svg';
 
@@ -25,6 +26,8 @@ const logos = {
   tigrotti,
 }
 
+const FIRST_DAY = moment('2020-04-25').endOf('day');
+
 const squadriglie = [
   'koala',
   'grizzly',
@@ -35,22 +38,13 @@ const squadriglie = [
 ];
 
 const incarichi = [
-  '🧹 bagno e scale',
+  '📰 italia',
   '🎯 gioco',
-  '📰 news e stock',
-  '🧹 pulizia sede',
+  '🍳 cucina',
+  '🌍 estero',
   '🙏🏼 preghiera',
   '🎤 canto',
 ];
-
-
-// const Sqs = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   align-intems: center;
-//   justify-content: center;
-// `;
 
 const ImgContainer = styled.div`
   display: flex;
@@ -93,12 +87,12 @@ const AppLine = styled.section`
   justify-content: center;
   margin: 0;
   width: 100%;
-  height: 15%;
+  height: 20%;
   background-color: black;
 `;
 
 const AppMainLine = styled(AppLine)`
-  height: 70%;
+  height: 65%;
   background-color: black;
 `;
 
@@ -114,20 +108,20 @@ const AppTopLine = styled(AppLine)`
 `;
 
 const AppSide = styled.div`
-  display: none;
+  display: flex;
   margin: 0;
-  width: 15%;
   height: 100%;
+  width: 10%;
 
   background-image: url(${space});
   background-position: center;
 
   @media (min-width: 370px) {
-    display: flex;
+    width: 25%;
   }
 
   @media (min-width: 550px) {
-    width: 40%;
+    width: 50%;
   }
 `;
 
@@ -139,7 +133,7 @@ const AppContainer = styled.div`
   align-self: stretch;
   margin: 0;
   width: 100%;
-  max-width: 400px;
+  max-width: 330px;
   border-radius: 4%;
 
   background-image: url(${rocket});
@@ -160,6 +154,9 @@ const Main = styled.main`
 
 
 function App() {
+  const diffWeeks = Math.trunc(moment.duration(moment().diff(FIRST_DAY)).asWeeks());
+  const translateCoef = diffWeeks % 6;
+  const sortedSqs = squadriglie.slice(translateCoef, squadriglie.length).concat(squadriglie.slice(0, translateCoef));
   return (
     <Main>
       <AppTopLine />
@@ -167,10 +164,10 @@ function App() {
         <AppSide />
         <AppContainer>
           {incarichi.map((incarico, index) => (
-            <Item>
+            <Item key={incarico}>
               <h1>{incarico}</h1>
               <ImgContainer>
-                <img src={logos[squadriglie[index]]} alt={squadriglie[index]} />
+                <img src={logos[sortedSqs[index]]} alt={sortedSqs[index]} />
               </ImgContainer>
             </Item>
           ))}
