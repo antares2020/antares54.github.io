@@ -97,6 +97,8 @@ const AppMainLine = styled(AppLine)`
 `;
 
 const AppBottomLine = styled(AppLine)`
+  height: 25%;
+
   background-image: url(${engine});
   background-position: center top;
   background-repeat: norepeat;
@@ -140,6 +142,68 @@ const AppContainer = styled.div`
   background-repeat: repeat;
 `;
 
+const Table = styled.div`
+  width: calc(100% - 2rem);
+  border-radius: 20px;
+
+  padding: 1rem;
+
+  background-color: rgba(200, 200, 200, 0.7);
+`;
+
+const StyledCel = styled.span`
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 12%;
+  margin: 1%;
+`;
+
+const StyledRow = styled.div`
+  margin: 0.1rem;
+  border: 1px black solid;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const StyledGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(200, 200, 200, 0.5);
+
+  ${StyledRow}:nth-child(2n) {
+    background-color: rgba(100, 100, 100, 0.3);
+  }
+`;
+
+const IncarichiSection = styled.section`
+  width: calc(100% - 2rem);
+  heigth: auto;
+  padding: 1rem;
+
+  background-image: url(${space});
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin: 0.5rem;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+  }
+`;
+
 const Main = styled.main`
   display: flex;
   align-items: center;
@@ -149,7 +213,13 @@ const Main = styled.main`
   height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: black;
 `;
+
+
+const scoreIncarichi = [
+  ['05/02', '3', '3', '3', '3', '3', '3'],
+];
 
 
 
@@ -175,6 +245,35 @@ function App() {
         <AppSide />
       </AppMainLine>
       <AppBottomLine />
+      <IncarichiSection>
+        <Table>
+          <h2>Risultati incarichi</h2>
+          <StyledGrid>
+            <StyledGrid>
+              <StyledRow>
+                <StyledCel><strong>Data</strong></StyledCel>
+                <StyledCel><strong>Koala</strong></StyledCel>
+                <StyledCel><strong>Grizzly</strong></StyledCel>
+                <StyledCel><strong>Aironi</strong></StyledCel>
+                <StyledCel><strong>Puma</strong></StyledCel>
+                <StyledCel><strong>Lemming</strong></StyledCel>
+                <StyledCel><strong>Tigrotti</strong></StyledCel>
+              </StyledRow>
+              {scoreIncarichi.map((scores) => (
+                <StyledRow key={scores[0]}>
+                  <StyledCel><strong>{scores[0]}</strong></StyledCel>
+                  <StyledCel>{scores[1]}</StyledCel>
+                  <StyledCel>{scores[2]}</StyledCel>
+                  <StyledCel>{scores[3]}</StyledCel>
+                  <StyledCel>{scores[4]}</StyledCel>
+                  <StyledCel>{scores[5]}</StyledCel>
+                  <StyledCel>{scores[6]}</StyledCel>
+                </StyledRow>
+              ))}
+            </StyledGrid>
+          </StyledGrid>
+        </Table>
+      </IncarichiSection>
     </Main>
   );
 }
