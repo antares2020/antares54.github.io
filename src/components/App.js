@@ -43,6 +43,7 @@ const squadriglie = [
 
 const scoreIncarichi = [
   ['02 Mag', '3', '1', '2', '1', '3', '3'],
+  ['08 Mag', '1', '3', '1', '3', '3', '1'],
 ];
 
 const getColor = (score) => {
@@ -159,7 +160,7 @@ const AppContainer = styled.div`
 
 const Table = styled.div`
   width: calc(100% - 2rem);
-  max-width: 50rem;
+  max-width: 45rem;
   margin: 1rem auto;
   border-radius: 20px;
 
@@ -170,7 +171,7 @@ const Table = styled.div`
 
 const ScoreItem = styled.div`
   width: 6rem;
-  margin: 1rem;
+  margin: 0.5rem;
 
   display: flex;
   flex-direction: column;
@@ -199,7 +200,7 @@ const ScoreRow = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 
-  margin: 1rem 0;
+  margin-top: 1rem;
   border: 2px grey solid;
   border-radius: 15px;
 
@@ -227,7 +228,7 @@ const IncarichiSection = styled.section`
 
   h1 {
     margin: 0.5rem;
-    width: 100%;
+    width: calc(100% - 1rem);
     font-weight: bold;
     text-align: center;
   }
