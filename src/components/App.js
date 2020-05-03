@@ -11,6 +11,7 @@ import puma from '../images/sqs/puma.jpeg';
 import lemming from '../images/sqs/lemming.jpeg';
 import tigrotti from '../images/sqs/tigrotti.jpeg';
 
+import excelent from '../images/scores/excelent.png';
 import good from '../images/scores/good.png';
 import medium from '../images/scores/medium.png';
 import bad from '../images/scores/bad.png';
@@ -42,11 +43,11 @@ const squadriglie = [
 ];
 
 const scoreIncarichi = [
-  ['02 Mag', '3', '1', '2', '1', '3', '3'],
-  ['08 Mag', '1', '3', '1', '3', '3', '1'],
+  ['02 Mag', '2', '3', '3', '4', '3', '3'],
 ];
 
 const getColor = (score) => {
+  if (score > 3) return excelent;
   if (score > 2) return good;
   if (score > 1) return medium;
   return bad;
@@ -191,7 +192,7 @@ const ScoreItem = styled.div`
     border-radius: 0 0 10px 10px;
     background-color: rgba(200, 200, 200, 0.7);
 
-    img { width: 1rem; }
+    img { width: 3rem; }
   }
 `;
 
@@ -287,11 +288,11 @@ function App() {
       <IncarichiSection>
         <Table>
           <h1>Punteggi incarichi</h1>
-          {scoreIncarichi.map((scores, scoreIndex) => (
-            <ScoreRow>
+          {scoreIncarichi.map((scores) => (
+            <ScoreRow key={scores[0]}>
               <h4>Data {scores[0]}</h4>
               {squadriglie.map((sq, index) => (
-                <ScoreItem>
+                <ScoreItem key={sq}>
                   <span><strong>{sq}</strong></span>
                   <span><img src={getColor(scores[index + 1])} alt={scores[index + 1]} /></span>
                 </ScoreItem>
