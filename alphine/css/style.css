@@ -1,0 +1,230 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  width: 100vw;
+  height: auto;
+  background-color: black;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* DRAW SECTION */
+.draw {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  margin: 0px;
+  padding: 0px;
+}
+
+.draw-head {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  background-color: black;
+  background-image: url(../media/top.jpg);
+  margin: 0px;
+  background-position: center center;
+  background-repeat: repeat-x;
+}
+
+.draw-middle {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 65%;
+  background-color: black;
+  margin: 0px;
+}
+
+.draw-middle-side {
+  display: flex;
+  height: 100%;
+  width: 10%;
+  background-image: url(../media/space.jpg);
+  margin: 0px;
+  background-position: center center;
+
+}
+@media (min-width: 370px) {
+  .draw-middle-side {
+    width: 25%;
+  }
+}
+@media (min-width: 550px) {
+  .draw-middle-side {
+    width: 50%;
+  }
+}
+
+.draw-middle-core {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+  align-self: stretch;
+  width: 100%;
+  max-width: 330px;
+  background-image: url(../media/rocket.jpg);
+  margin: 0px;
+  border-radius: 4%;
+  background-repeat: repeat;
+}
+
+.draw-bottom {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 100%;
+  background-color: black;
+  height: 25%;
+  background-image: url(../media/engine.jpg);
+  margin: 0px;
+  background-position: center top;
+  background-repeat: repeat-x;
+}
+
+/* ROCKET ITEMS */
+.rocket-item {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 2%;
+  height: 30%;
+  width: 48%;
+
+}
+.rocket-item h1 {
+  background-color: lightgrey;
+  height: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.2rem;
+  border-width: 2px;
+  border-style: dotted;
+  border-color: grey;
+  border-image: initial;
+  margin: 0px;
+}
+.rocket-item div {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  height: 75%;
+  width: 100%;
+}
+.rocket-item div img {
+  width: auto;
+  max-width: 40%;
+  border-radius: 50%;
+  border-width: 5px;
+  border-style: groove;
+  border-color: rgb(119, 119, 119);
+  border-image: initial;
+}
+
+/* TABLE */
+.table-container {
+  width: calc(100% - 2rem);
+  background-image: url(../media/space.jpg);
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  background-position: center center;
+}
+
+.table {
+  width: calc(100% - 2rem);
+  max-width: 45rem;
+  background-color: rgba(200, 200, 200, 0.7);
+  margin: 1rem auto;
+  border-radius: 20px;
+  padding: 1rem;
+}
+.table h1 {
+  width: calc(100% - 1rem);
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5rem;
+}
+.table-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  width: 100%;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: grey;
+  border-image: initial;
+  border-radius: 15px;
+}
+.table-row h4 {
+  width: 100%;
+  text-align: center;
+  margin: 0px;
+}
+.table-cel {
+  width: 6rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+.table-cel span {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 0.2rem 1rem;
+}
+.table-cel span:first-child {
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 10px 10px 0px 0px;
+}
+.table-cel span:last-child {
+  background-color: rgba(200, 200, 200, 0.7);
+  border-radius: 0px 0px 10px 10px;
+}
+.table-cel span:last-child img {
+  width: 3rem;
+}
