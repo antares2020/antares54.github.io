@@ -10,12 +10,12 @@ const SQUADRIGLIE = [
 ];
 
 const INCARICHI = [
-  '📰 italia',
-  '🎯 gioco',
-  '🍳 cucina',
-  '🌍 estero',
-  '🙏🏼 preghiera',
-  '🎤 canto',
+  '📰 Italia',
+  '🎯 Gioco',
+  '🍳 Cucina',
+  '🌍 Estero',
+  '🙏🏼 Preghiera',
+  '🎤 Ccanto',
 ];
 
 const RISULTATI_INCARICHI = [
