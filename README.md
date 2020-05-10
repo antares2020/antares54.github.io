@@ -3,8 +3,6 @@
 ## Aggiornamento Dati
 > I dati aggiornabili sono contenuti nel file `data.js` e modificabili creando un commit.
 
-> I passaggi necessari a modificare il file sono indicati nel video `HowUpdateData.mov` ([guarda ora](./HowUpdateData.mov))
-
 #### Data di inizio
 > La data del primo ciclo della rotazione ed aggiornabile al giorno corrente se si vuole resettare il giro degli incarichi.
 
