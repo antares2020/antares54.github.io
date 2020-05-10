@@ -15,7 +15,7 @@ const INCARICHI = [
   '🍳 Cucina',
   '🌍 Estero',
   '🙏🏼 Preghiera',
-  '🎤 canto',
+  '🎤 Canto',
 ];
 
 const RISULTATI_INCARICHI = [
