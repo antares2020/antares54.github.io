@@ -23,76 +23,41 @@
       <div class="draw-head"></div>
       <div class="draw-middle">
         <div class="draw-middle-side"></div>
-        <div class="draw-middle-core">
+        <div class="draw-middle-core" x-data="getSortedRoles()">
           <!-- for each SQ in SQS -->
-          <div class="rocket-item">
-            <h1>📰 Italia</h1>
-            <div><img src="./media/sqs/grizzly.jpeg" alt="grizzly"></div>
-          </div>
-          <!-- Placeholders -->
-          <div class="rocket-item">
-            <h1>📰 Italia</h1>
-            <div><img src="./media/sqs/grizzly.jpeg" alt="grizzly"></div>
-          </div>
-          <div class="rocket-item">
-            <h1>📰 Italia</h1>
-            <div><img src="./media/sqs/grizzly.jpeg" alt="grizzly"></div>
-          </div>
-          <div class="rocket-item">
-            <h1>📰 Italia</h1>
-            <div><img src="./media/sqs/grizzly.jpeg" alt="grizzly"></div>
-          </div>
-          <div class="rocket-item">
-            <h1>📰 Italia</h1>
-            <div><img src="./media/sqs/grizzly.jpeg" alt="grizzly"></div>
-          </div>
-          <div class="rocket-item">
-            <h1>📰 Italia</h1>
-            <div><img src="./media/sqs/grizzly.jpeg" alt="grizzly"></div>
-          </div>
+          <template x-for="role in roles">
+            <div class="rocket-item">
+              <h1 x-text="role.role"></h1>
+              <div><img :src="role.image" :alt="role.sq"></div>
+            </div>
+          </template>
         </div>
         <div class="draw-middle-side"></div>
       </div>
       <div class="draw-bottom"></div>
     </section>
     <section class="table-container">
-      <div class="table">
+      <div class="table" x-data="getResults()">
         <h1>Punteggi incarichi</h1>
         <!-- for each SCORE in SCORES-->
-        <div class="table-row">
-          <h4>Data 02 Mag</h4>
-          <!-- for each SQ in score -->
-          <div class="table-cel">
-            <span><strong>koala</strong></span>
-            <span><img src="./media/scores/medium.png" alt="2"></span>
+        <template  x-for="item in results">
+          <div class="table-row">
+            <h4 x-text="item[0]"></h4>
+            <template x-for="(score, index) in item.slice(1)">
+              <div class="table-cel">
+                <span><strong x-text="sqs[index]"></strong></span>
+                <span><img :src="getScore(score)" :alt="score"></span>
+              </div>
+            </template>
           </div>
-          <!-- =placeholders -->
-          <div class="table-cel">
-            <span><strong>koala</strong></span>
-            <span><img src="./media/scores/medium.png" alt="2"></span>
-          </div>
-          <div class="table-cel">
-            <span><strong>koala</strong></span>
-            <span><img src="./media/scores/medium.png" alt="2"></span>
-          </div>
-          <div class="table-cel">
-            <span><strong>koala</strong></span>
-            <span><img src="./media/scores/medium.png" alt="2"></span>
-          </div>
-          <div class="table-cel">
-            <span><strong>koala</strong></span>
-            <span><img src="./media/scores/medium.png" alt="2"></span>
-          </div>
-          <div class="table-cel">
-            <span><strong>koala</strong></span>
-            <span><img src="./media/scores/medium.png" alt="2"></span>
-          </div>
-        </div>
+        </template>
       </div>
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment.min.js"></script>
+
   <script type="text/javascript" src="./js/data.js"></script>
   <script type="text/javascript" src="./js/utils.js"></script>
 </body>
